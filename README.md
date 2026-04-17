@@ -80,7 +80,7 @@ If you prefer, paste email content directly or provide a PDF. Claude will proces
 - **Plain text** - no markdown formatting, Gmail-ready
 - **Verified links only** - all URLs checked before inclusion
 - **Concise and professional** - link-centric approach (brief explanation + link to docs)
-- **Review before sending** - always read what you're sending! Email is copied to clipboard for convenience, but YOU are responsible for what goes to customers
+- **⚠️ ALWAYS REVIEW BEFORE SENDING** - Email is copied to clipboard for convenience, but **YOU ARE RESPONSIBLE** for what goes to customers. READ IT FIRST!
 
 ### Conversation History
 Every interaction creates/updates a folder in `history/`:
