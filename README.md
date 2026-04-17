@@ -23,8 +23,8 @@ An AI-powered email writing assistant for Twilio Pre-Sales Solutions Engineers. 
 - Return 1-5 options based on query specificity
 
 ### 3. Salesforce Artifacts
-- Generate Executive Summary and Notes for RFP responses
-- Structured format for business case documentation
+- Generate Use Case and SE Notes from Gong call transcripts
+- Structured format for Salesforce opportunity documentation
 
 ## Setup
 
