@@ -2,36 +2,23 @@
 
 An AI-powered email writing assistant for Twilio Pre-Sales Solutions Engineers. Drafts customer emails, finds resources, and maintains conversation history with automatic Apple Mail integration.
 
-## Features
-
-- **Email drafting** with verified links and link-centric approach
-- **Apple Mail integration** - search and extract emails automatically
-- **Conversation history** - organized by customer and timestamp
-- **Multiple output modes**: Resource finding, Draft, Salesforce artifacts
-- **Automatic clipboard copy** - emails ready to paste into Gmail
-
 ## Use Cases
 
-### 1. Draft Customer Emails
-- Answer technical questions with verified documentation links
-- Provide resource lists for customer inquiries
-- Handle follow-ups with full thread context
+### Draft Customer Emails
+Answer technical questions with verified documentation links, provide resource lists, and handle follow-ups with full thread context.
 
-### 2. Resource Finding
-- Find and verify Twilio documentation links
-- Prioritize official sources (docs, blog, support, changelog)
-- Return 1-5 options based on query specificity
+### Resource Finding
+Find and verify Twilio documentation links. Returns 1-5 options prioritizing official sources (docs, blog, support, changelog).
 
-### 3. Salesforce Artifacts
-- Generate Use Case and SE Notes from Gong call transcripts
-- Structured format for Salesforce opportunity documentation
+### Salesforce Artifacts
+Generate Use Case and SE Notes from Gong call transcripts in structured format for Salesforce opportunities.
 
 ## Setup
 
 ### Prerequisites
-- macOS with Apple Mail configured
-- Corporate Gmail synced to Apple Mail
-- Git for version control
+- macOS with Apple Mail app
+- Twilio email logged in via Apple Mail (emails must sync locally)
+- Claude Code or Claude-enabled IDE
 
 ### Installation
 
@@ -41,160 +28,118 @@ git clone git@github.com:kuschanton/calude-email-writer.git
 cd claude-email-writer
 ```
 
-2. The project structure:
+2. Open this directory in Claude Code
+
+That's it! The system is ready to use.
+
+## How to Use
+
+### Writing an Email
+
+**Step 1: Find the email**
+
+Say: "Find email from john@example.com from today"
+
+Claude searches Apple Mail and displays the email. Confirm to proceed.
+
+**Step 2: Review the draft**
+
+Claude displays the email body in plain text with clickable links. The email is automatically saved to `history/YYYYMMDD_HHMM_customer/response.md`
+
+**Step 3: Copy to clipboard**
+
+Email is automatically copied via pbcopy. Just paste into Gmail (Cmd+V). No signature needed - Gmail adds it.
+
+### Example Queries
+
 ```
-claude-email-writer/
-├── CLAUDE.md              # System instructions (auto-loaded)
-├── scripts/               # Apple Mail integration
-│   ├── search_mail.applescript
-│   └── README.md
-├── history/               # Customer email threads (gitignored)
-├── examples/              # Training examples (gitignored)
-├── prompt/                # Original prompts (gitignored)
-└── .gitignore            # Protects customer data
+"Find email from customer@example.com from today"
+"See email from John Doe this week"
+"Any threads for Acme Corp?"
 ```
 
-3. Open this directory in Claude Code or your preferred Claude-enabled IDE
+### Follow-up Emails
 
-## How It Works
+Say: "New question from customer"
 
-### Email Writing Workflow
+Claude knows the context, creates `response_2.md`, and maintains full thread history.
 
-1. **Find the email** (automatic):
-   - Say: "Find email from john@example.com from today"
-   - Claude searches Apple Mail and shows you the email
-   - Confirm to proceed
+### Manual Email Input
 
-2. **Review the draft**:
-   - Claude creates history entry under `history/YYYYMMDD_HHMM_customer/`
-   - Displays email body in chat (clickable links)
-   - Email is plain text (no markdown) - Gmail-ready
+If you prefer, paste the email content directly or provide a PDF. Claude will process it the same way.
 
-3. **Copy to clipboard** (automatic):
-   - Email is copied via `pbcopy`
-   - Paste directly into Gmail (Cmd+V)
-   - No signature needed - Gmail adds automatically
+## What to Expect
 
-4. **Follow-ups**:
-   - Say: "New question from customer"
-   - Claude creates `response_2.md`, `response_3.md`, etc.
-   - Full thread context preserved
+### Email Output
+- **Plain text** - no markdown formatting, Gmail-ready
+- **Verified links only** - all URLs checked before inclusion
+- **Concise and professional** - link-centric approach (brief explanation + link to docs)
+- **Ready to paste** - in your clipboard, no editing needed
 
-### Apple Mail Integration
+### Conversation History
+Every interaction creates/updates a folder in `history/`:
+```
+history/YYYYMMDD_HHMM_customer_name/
+├── context.md      # Customer's question + full thread
+├── response.md     # Your first reply
+├── response_2.md   # Follow-up replies
+└── attachments/    # Any PDFs or screenshots
+```
 
-**Setup requirement:**
-- Log in to your Twilio email account via the Apple Mail app
-- Emails must be synced locally for the script to search them
-- Once configured, the integration works automatically
+### Finding Past Threads
 
-The `search_mail.applescript` searches your inbox by:
-- Sender name or email address
-- Date range (today, yesterday, this week, last 30 days)
+Say: "Any threads for Acme Corp?"
 
-**Example queries:**
-- "Find email from customer@example.com from today"
-- "See recent email from John Doe"
-- "Email from support this week"
-
-**Script behavior:**
-- Searches inbox only (fast)
-- Returns most recent match
-- Extracts full email thread
-- 60-second timeout built-in
-
-## Configuration
-
-### Customizing Search
-
-Edit `scripts/search_mail.applescript` to:
-- Search all mailboxes (slower): Change `messages of inbox` to search all accounts
-- Adjust default date range: Change `set daysBack to 30`
-
-### Output Preferences
-
-All settings are in `CLAUDE.md`:
-- Email tone and style
-- Link verification requirements
-- Output formats per mode
-- History naming conventions
+Claude lists all matching threads with timestamps and summaries.
 
 ## Important Notes
 
 ### Link Verification
-- **All URLs in email body are verified** before sending
-- Uses WebFetch to check 200 OK response
-- Better to omit than include broken links
-- "Links used" section (for tracking) doesn't require verification
+Every URL in the email body is verified (200 OK check) before sending. Broken links are omitted automatically.
 
-### Plain Text Only
-- No markdown formatting (**bold**, *italic*, etc.)
+### Plain Text Formatting
+- No markdown (**bold**, *italic*, `code`)
 - No em dashes (—) - use hyphens (-)
-- Plain text is Gmail-friendly and doesn't look AI-generated
+- Keeps emails natural and professional
 
 ### Data Privacy
-- Customer data (`history/`, `examples/`, `prompt/`) is gitignored
-- Safe to share repository with colleagues
-- Only system code is version controlled
+Customer data (`history/`, `examples/`, `prompt/`) is gitignored. Safe to share the repository with colleagues.
 
 ## Troubleshooting
 
-### Email search is slow
-- Script searches all mailboxes by default
-- Reduce date range: "from today" vs "this week"
-- Check Apple Mail is synced and not indexing
+**Email search is slow:** Reduce date range ("from today" vs "this week"). Check Apple Mail is synced.
 
-### pbcopy doesn't work
-- Ensure clipboard permissions are enabled
-- Fallback: Copy from `history/YYYYMMDD_HHMM_customer/response.md`
+**pbcopy doesn't work:** Fallback - copy from `history/YYYYMMDD_HHMM_customer/response.md`
 
-### Links don't work in email
-- All links are verified before inclusion
-- If verification fails, link is omitted
-- Check WebFetch permissions
+**Links broken:** If WebFetch can't verify, links are automatically omitted from draft.
 
-## Commands
+---
 
-### Search for customer threads:
+## Technical Details
+
+### Project Structure
 ```
-"Any threads for [customer name]?"
-"Do I have threads?"
+claude-email-writer/
+├── CLAUDE.md              # System instructions (auto-loaded)
+├── README.md              # This file
+├── scripts/               # Apple Mail integration
+├── history/               # Customer threads (gitignored)
+└── .gitignore            # Protects customer data
 ```
 
-### Start new thread:
-Provide email content or say:
-```
-"Find email from customer@example.com from today"
-```
+### Apple Mail Script
+`scripts/search_mail.applescript` searches inbox by sender and date range. Configurable via script parameters.
 
-### Continue existing thread:
-```
-"New question from customer"
-```
+### Configuration
+Edit `CLAUDE.md` to customize:
+- Email tone and style
+- Link verification behavior
+- Output formats
+- History naming
 
-## Project Structure Details
+### Contributing
+Fork and customize for your workflow. Update `.gitignore` to protect your customer data.
 
-### History Directory
-```
-history/
-└── YYYYMMDD_HHMM_customer_name/
-    ├── context.md          # Customer question + full thread
-    ├── response.md         # Your email response
-    ├── response_2.md       # Follow-up responses
-    └── attachments/        # PDFs, screenshots
-```
+---
 
-### Naming Convention
-- Format: `YYYYMMDD_HHMM_customer_name` or `YYYYMMDD_HHMM_brief_summary`
-- Customer name: lowercase, underscores (e.g., `acme_corp`)
-- No customer name: brief summary (max 50 chars): `api_timeout_issue`
-
-## Contributing
-
-This is a personal workflow tool. If you fork it:
-1. Update `.gitignore` to protect your customer data
-2. Customize `CLAUDE.md` for your use case
-3. Adjust `search_mail.applescript` for your Mail setup
-
-## License
-
-Internal use only - not for public distribution.
+**License:** Internal use only
