@@ -182,11 +182,10 @@ User explicitly asks for "Salesforce artifacts".
      - Add separators: "---" and "EMAIL BODY:" 
      - Show the full email body so user can review and see clickable links
      - Do NOT wait for approval after showing - just continue to step 3
-   - **Step 3**: Run ONLY this simple one-line bash command: `cat history/YYYYMMDD_HHMM_customer/response.md | pbcopy`
-     - Copy from the history file (not /tmp)
-     - This is what user will see and approve
-     - Do NOT use heredoc in this command - file already exists from step 1
-     - Keep it to 1 line only
+   - **Step 3**: Use the clipboard script: `./scripts/copy_to_clipboard.sh history/YYYYMMDD_HHMM_customer/response.md`
+     - This is the reliable way to copy - never guess with cat/pbcopy variations
+     - User will see and approve this command
+     - Script uses input redirection (pbcopy < file) which is most reliable
    - **Email formatting: Plain text only - NO markdown**
      - Do NOT use markdown syntax: no **bold**, no *italic*, no `code`, no ### headers
      - Use only: spaces, tabs, new lines, dashes, regular text
