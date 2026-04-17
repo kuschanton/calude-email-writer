@@ -54,8 +54,7 @@ Email is automatically copied via pbcopy. Just paste into Gmail (Cmd+V). No sign
 
 ```
 "Find email from customer@example.com from today"
-"See email from John Doe this week"
-"Any threads for Acme Corp?"
+"Find email from john.doe@example.com from last week"
 ```
 
 ### Follow-up Emails
