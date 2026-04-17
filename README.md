@@ -82,6 +82,11 @@ claude-email-writer/
 
 ### Apple Mail Integration
 
+**Setup requirement:**
+- Log in to your Twilio email account via the Apple Mail app
+- Emails must be synced locally for the script to search them
+- Once configured, the integration works automatically
+
 The `search_mail.applescript` searches your inbox by:
 - Sender name or email address
 - Date range (today, yesterday, this week, last 30 days)
