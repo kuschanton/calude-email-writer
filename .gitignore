@@ -1,0 +1,24 @@
+# Customer data and conversation history
+history/
+
+# Training examples and original prompts (may contain PII)
+examples/
+prompt/
+
+# Python virtual environment
+venv/
+*.pyc
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Credentials
+credentials.json
+token.json
+*.key
+*.pem
+
+# Temporary files
+*.tmp
+*.log
