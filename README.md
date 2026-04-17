@@ -57,15 +57,22 @@ Email is automatically copied via pbcopy. Just paste into Gmail (Cmd+V). No sign
 "Find email from john.doe@example.com from last week"
 ```
 
-### Follow-up Emails
+### Continuing Previous Chats
 
-Say: "New question from customer"
+To iterate on a draft or return to a previous conversation, say:
 
-Claude knows the context, creates `response_2.md`, and maintains full thread history.
+```
+"New question from customer"
+```
+
+Claude loads the context from the current chat's history and creates `response_2.md`, `response_3.md`, etc. This is useful for:
+- Refining an email draft based on feedback
+- Handling follow-up questions in the same thread
+- Iterating on Salesforce artifacts or resource lists
 
 ### Manual Email Input
 
-If you prefer, paste the email content directly or provide a PDF. Claude will process it the same way.
+If you prefer, paste email content directly or provide a PDF. Claude will process it the same way.
 
 ## What to Expect
 
