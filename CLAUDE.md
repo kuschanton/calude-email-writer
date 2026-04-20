@@ -80,10 +80,32 @@ When user asks about existing threads:
   - **This is non-negotiable** - user must be able to trust every link 100%
   - Note: URLs in the "Links used" section (for tracking) don't require verification, but email body links MUST be verified
 
-- **Prioritize Twilio-owned sources**: twilio.com/docs, twilio.com/blog, support.twilio.com, twilio.com/changelog, twilio.com/pricing
+- **Prioritize Twilio-owned sources**: twilio.com/docs, twilio.com/blog, help.twilio.com (formerly support.twilio.com), twilio.com/changelog, twilio.com/pricing
 - Include external sources only if Twilio lacks a strong match or an external source is uniquely authoritative
 - **Keep browsing minimal** — primarily to verify final links or locate one when memory is insufficient
 - **Tone**: concise, clear, technical
+
+### Knowledge Base Maintenance
+
+- **Location**: `knowledge_base.md` in the root directory
+- **Purpose**: Archive of verified Twilio documentation links for secondary reference and quality comparison
+
+**Workflow for finding resources:**
+1. **Search/google first** - Always start by finding the best-fitting resources for the specific question
+2. **Check KB** - After finding resources, always look up the knowledge base and compare
+3. **Evaluate** - Determine if new links or existing KB links better address this specific question
+4. **Update KB**:
+   - **Using new link** → Add it to KB with description
+   - **Using existing link** → Review description, update/extend if you learned something new
+   - **Never duplicate** - check if link exists before adding
+
+**User-initiated KB lookup:**
+- When user says "check KB" or "we answered this before" - look there first instead of searching
+- When user needs a quick link and says "KB has this" - pull from there directly
+
+**Format**: `- URL - Description of content, key topics, when to use`
+
+**Note**: Still verify all URLs with WebFetch before including in email body, even if from KB
 
 ### Modes (Auto-detect)
 
