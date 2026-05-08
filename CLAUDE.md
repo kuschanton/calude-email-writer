@@ -69,6 +69,7 @@ When user asks about existing threads:
   - Follow immediately with a direct URL to the relevant official documentation
   - Let the documentation do the teaching — your job is to point to the right resource
   - If no single resource exists, provide multiple targeted links rather than writing the solution yourself
+  - **Use anchored links (section-specific URLs) whenever possible** - Direct customers to the exact section that addresses their question rather than making them search through long documentation pages (e.g., `https://www.twilio.com/docs/rcs/send-an-rcs-message#send-an-rcs-message-with-automatic-fallback-to-sms-or-mms` instead of just the base URL)
 
 - **MANDATORY: Verify EVERY URL in the email body before including it**
   - **NEVER include a URL in the email body based on memory alone** - you MUST verify it works
@@ -91,10 +92,11 @@ When user asks about existing threads:
 - **Purpose**: Archive of verified Twilio documentation links for secondary reference and quality comparison
 
 **Workflow for finding resources:**
-1. **Search/google first** - Always start by finding the best-fitting resources for the specific question
-2. **Check KB** - After finding resources, always look up the knowledge base and compare
-3. **Evaluate** - Determine if new links or existing KB links better address this specific question
-4. **Update KB**:
+1. **Search first** - Always start by using WebSearch to find the best-fitting resources for the specific question. Do NOT try to guess URLs from memory.
+2. **Verify URLs** - Use WebFetch to verify each URL works and contains relevant content
+3. **Check KB** - After finding resources, always look up the knowledge base and compare
+4. **Evaluate** - Determine if new links or existing KB links better address this specific question
+5. **Update KB**:
    - **Using new link** → Add it to KB with description
    - **Using existing link** → Review description, update/extend if you learned something new
    - **Never duplicate** - check if link exists before adding
@@ -132,9 +134,15 @@ User explicitly asks to "draft/write a reply/answer/email/slack".
 2. Include relevant links inline within the email body
 3. After displaying the email, output a "Links used:" section with URLs
 
+**Email formatting: Plain text only - NO markdown**
+- Do NOT use markdown syntax: no **bold**, no *italic*, no `code`, no ### headers
+- Use only: spaces, tabs, new lines, dashes, regular text
+- **NEVER use long dashes (em dashes —)** - use regular hyphens (-) instead (long dashes look AI-generated)
+- Structure with blank lines and clear section labels (plain text)
+
 **Example output structure:**
 ```
-[Email body here with inline links]
+[Email body here with inline links - PLAIN TEXT ONLY]
 ```
 
 **Links used:**
@@ -142,6 +150,14 @@ User explicitly asks to "draft/write a reply/answer/email/slack".
 https://example.com/doc1
 https://example.com/doc2
 ```
+
+**Automatic clipboard copy for standalone drafts:**
+- When drafting emails NOT part of a history thread (e.g., follow-up emails, quick responses), automatically copy to clipboard
+- **ALWAYS display the email body in chat first** with separators "---" and "EMAIL BODY:" so user can review before clipboard
+- Save to `/tmp/output.txt` and copy using: `cat > /tmp/output.txt <<'EOF' ... EOF && pbcopy < /tmp/output.txt`
+- This ensures clean copy without leading spaces or markdown formatting
+- Confirm with "✅ Copied to clipboard (plain text, no markdown)"
+- Exception: If using history workflow (response.md), use the history clipboard script instead
 
 #### 3. Salesforce Artifacts Mode
 User explicitly asks for "Salesforce artifacts".
@@ -151,6 +167,12 @@ User explicitly asks for "Salesforce artifacts".
   1. **First block ("Use Case")**: 3–5 concise sentences describing the business problem and Twilio solution
   2. **Second block ("Notes")**: 5–10 sentences. Structure Requirements: Use only dashes for top-level items, new lines, and tabs for sub-items. No markdown (bolding, italics, etc.) is allowed.
 - Do not include any text outside these two code blocks
+
+**Automatic clipboard copy:**
+- **ALWAYS display the artifacts in chat first** so user can review what will be copied
+- After displaying, automatically copy to clipboard using: `cat > /tmp/output.txt <<'EOF' ... EOF && pbcopy < /tmp/output.txt`
+- This ensures clean copy without leading spaces from code block formatting
+- Confirm with "✅ Copied to clipboard"
 
 ### Clarification
 
@@ -195,7 +217,7 @@ User explicitly asks for "Salesforce artifacts".
    - Any attachments (PDFs, screenshots) in `attachments/`
 4. **Draft the email** according to mode rules
 5. **Save your response** to `response.md` (or `response_2.md`, `response_3.md` for follow-ups)
-6. **CRITICAL: Copy email body to clipboard AND display it**
+6. **CRITICAL: Display email body AND copy to clipboard**
    - **Step 1**: Save the email body to the history directory as `response.md` (or `response_2.md`, etc. for follow-ups)
      - Use bash heredoc (cat with EOF) to write to the file
      - This preserves the email for historical reference
@@ -203,11 +225,13 @@ User explicitly asks for "Salesforce artifacts".
    - **Step 2**: Display the email body in plain text in the chat for review
      - Add separators: "---" and "EMAIL BODY:" 
      - Show the full email body so user can review and see clickable links
+     - **CRITICAL: You MUST print the email body in your chat response** - the clipboard script no longer does this
      - Do NOT wait for approval after showing - just continue to step 3
    - **Step 3**: Use the clipboard script: `./scripts/copy_to_clipboard.sh history/YYYYMMDD_HHMM_customer/response.md`
      - This is the reliable way to copy - never guess with cat/pbcopy variations
      - User will see and approve this command
      - Script uses input redirection (pbcopy < file) which is most reliable
+     - **Note**: The script only copies to clipboard - it does NOT display content. You must display in Step 2.
    - **Email formatting: Plain text only - NO markdown**
      - Do NOT use markdown syntax: no **bold**, no *italic*, no `code`, no ### headers
      - Use only: spaces, tabs, new lines, dashes, regular text
@@ -225,7 +249,10 @@ User explicitly asks for "Salesforce artifacts".
 2. **Create sequential response file**: `response_2.md`, `response_3.md`, etc.
 3. **Append new customer question** to `context.md`
 4. **Draft the follow-up email** with full thread context
-5. **Output the email body directly in the chat** (same as initial response)
+5. **Display and copy the email**:
+   - Display the email body in chat with "---" and "EMAIL BODY:" separators
+   - Use `./scripts/copy_to_clipboard.sh` to copy to clipboard
+   - Remember: You MUST display the email body in your response - the script only copies
 
 ### When user asks "any threads for [customer]?" or "do I have threads?":
 
