@@ -42,9 +42,9 @@ Draft concise, technical customer emails in markdown with verified documentation
 - Keep it concise - no fluff
 
 ### 4. Save to File
-- Save content to `tmp/email_response.md` using heredoc:
+- Save content to `tmp/_EMAIL_RESPONSE.md` using heredoc:
   ```bash
-  cat > tmp/email_response.md <<'EOF'
+  cat > tmp/_EMAIL_RESPONSE.md <<'EOF'
   [email content in markdown]
   EOF
   ```
@@ -53,11 +53,11 @@ Draft concise, technical customer emails in markdown with verified documentation
 - **DO NOT print email to console** - only confirmation message
 
 ### 5. Copy to Clipboard
-- Copy using script: `./scripts/copy_to_clipboard.sh tmp/email_response.md`
-- Script outputs: "✅ Copied to clipboard: tmp/email_response.md"
+- Copy using script: `./scripts/copy_to_clipboard.sh tmp/_EMAIL_RESPONSE.md`
+- Script outputs: "✅ Copied to clipboard: tmp/_EMAIL_RESPONSE.md"
 
 ### 6. Confirm to User
-- Tell user: "✅ Email draft saved to `tmp/email_response.md` and copied to clipboard"
+- Tell user: "✅ Email draft saved to `tmp/_EMAIL_RESPONSE.md` and copied to clipboard"
 - Show "Links used:" section with URLs in a code block for reference
 - **Do not display the full email body** - user will read it in Obsidian
 
@@ -66,8 +66,8 @@ Draft concise, technical customer emails in markdown with verified documentation
 ## Special Command: "cb"
 
 If user sends just "cb", immediately re-copy the last drafted content:
-- Copy from `tmp/email_response.md`
-- Use: `./scripts/copy_to_clipboard.sh tmp/email_response.md`
+- Copy from `tmp/_EMAIL_RESPONSE.md`
+- Use: `./scripts/copy_to_clipboard.sh tmp/_EMAIL_RESPONSE.md`
 - Respond only: "✅ Copied to clipboard!"
 
 ---
@@ -104,7 +104,7 @@ If user sends just "cb", immediately re-copy the last drafted content:
 
 ## Output
 
-1. Save email to `tmp/email_response.md` (markdown format)
+1. Save email to `tmp/_EMAIL_RESPONSE.md` (markdown format)
 2. Copy to clipboard automatically
 3. Confirm to user with "Links used:" section
-4. User reads final email in Obsidian from `tmp/email_response.md`
+4. User reads final email in Obsidian from `tmp/_EMAIL_RESPONSE.md`

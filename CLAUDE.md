@@ -79,7 +79,7 @@ If unsure which skill to use, ask the user briefly. Otherwise, auto-detect based
 ### "cb" Command (Global)
 
 If user sends just "cb", immediately re-copy the last drafted content to clipboard:
-- For emails: copy from `tmp/email_response.md`
+- For emails: copy from `tmp/_EMAIL_RESPONSE.md`
 - For SF artifacts: copy from `tmp/sf_artifacts.md`
 - For RFX answers: copy from `tmp/rfx_answers.txt`
 - Use: `./scripts/copy_to_clipboard.sh [file_path]`
@@ -94,7 +94,7 @@ This allows user to quickly restore content to clipboard if they've copied other
 **All drafted content goes to `tmp/` folder** for Obsidian integration:
 
 ### Output Files
-- **Emails**: `tmp/email_response.md` (markdown format, reused every time)
+- **Emails**: `tmp/_EMAIL_RESPONSE.md` (markdown format, reused every time)
 - **SF Artifacts**: `tmp/sf_artifacts.md` (markdown format)
 - **Call Prep**: `tmp/call_prep.md` (markdown format)
 - **RFX Answers**: `tmp/rfx_answers.txt` (plain text only - for forms)
