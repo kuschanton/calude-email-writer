@@ -6,6 +6,11 @@ This file contains verified Twilio documentation links with descriptions. Links 
 
 - https://help.twilio.com/articles/223183208-Upgrading-to-a-paid-Twilio-Account - Guide for upgrading from trial to paid Twilio account, covers upgrade process and requirements
 
+## Trust Hub
+
+- https://www.twilio.com/docs/trust-hub - Trust Hub overview: organize and submit business/identity information for telecom compliance; manages Customer Profiles, registrations, addresses; enables toll-free messaging, A2P 10DLC, STIR/SHAKEN, CNAM
+- https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/onboarding-isv - ISV A2P 10DLC onboarding: Primary Customer Profile for ISV's own Account (not shared with sub-accounts), Secondary Customer Profiles for each customer under their respective sub-accounts; maintains compliance boundaries
+
 ## RCS (Rich Communication Services)
 
 - https://www.twilio.com/docs/rcs/onboarding - Complete RCS onboarding guide including sender registration, device testing, compliance submission, and timeline (4-6 weeks or longer for multiple regions)
@@ -57,6 +62,11 @@ This file contains verified Twilio documentation links with descriptions. Links 
 ## Voice
 
 - https://www.twilio.com/docs/voice - Overview of Twilio Programmable Voice service covering foundational concepts through advanced features including call handling, SIP integration, IVR systems, and real-time call quality monitoring
+- https://www.twilio.com/docs/voice/branded-calling - Branded Calling overview: Voice Trust product displaying verified business information (name, logo, call reason) on recipients' mobile phones during outbound calls; Public Beta for US (T-Mobile, Verizon), Private Beta for non-US
+- https://www.twilio.com/docs/voice/branded-calling/us-basic - US Basic Branded Calling setup: displays verified business name (15-32 chars) on mobile caller ID; requires approved Business Profile, Voice Integrity registration, SHAKEN/STIR enabled numbers
+- https://www.twilio.com/docs/voice/branded-calling/us-enhanced - US Enhanced Branded Calling setup: displays name (35 chars), logo (256x256 BMP), and call reason (64 chars); requires approved Business Profile with EIN/DUNS, SHAKEN/STIR, signed LOA
+- https://www.twilio.com/docs/voice/trusted-calling-with-shakenstir/shakenstir-onboarding/shaken-stir-trust-hub-api-isvs-subaccounts - SHAKEN/STIR onboarding for ISVs with sub-accounts via Trust Hub REST API: create Primary Business Profile in parent account, create Secondary Business Profiles for each customer sub-account, connect Secondary to Primary, assign phone numbers
+- https://www.twilio.com/docs/voice/spam-monitoring-with-voiceintegrity/voice-integrity-onboarding/voice-integrity-trust-hub-api-isvs-subaccounts - Voice Integrity onboarding for ISVs with sub-accounts: Primary Business Profile in parent account (one-time setup), Secondary Business Profiles for each customer sub-account with supporting documents, authorized reps, phone number assignment, trust product creation
 - https://www.twilio.com/docs/voice/answering-machine-detection - How to detect whether outbound calls are answered by humans, answering machines, or fax machines, including synchronous/asynchronous detection modes
 - https://www.twilio.com/docs/voice/api/call-resource - Call resource API for initiating outbound calls, retrieving call information, and managing call records through REST operations
 - https://www.twilio.com/docs/voice/api/recording - How to create, retrieve, update, and delete voice call and conference recordings through REST API endpoints
@@ -80,14 +90,21 @@ This file contains verified Twilio documentation links with descriptions. Links 
 
 - https://www.twilio.com/docs/verify/api - Twilio's Verify API for user verification through SMS, WhatsApp, email, voice, and push notifications with three-step workflow: create service, send token, validate code
 - https://www.twilio.com/docs/verify/api/customization-options - Customization features including custom verification codes using pre-screened message templates and overriding default company name with custom_friendly_name
+- https://www.twilio.com/docs/verify/api/programmable-rate-limits - Service Rate Limits for Verify applications: built-in rate limiting to protect against account takeover and toll fraud, configurable per-verification-service
 - https://www.twilio.com/docs/verify/api/verification#update-a-verification-status - Verifications API for starting and managing phone number or email verification requests across multiple channels (SMS, WhatsApp, voice, Silent Network Auth, email)
 - https://www.twilio.com/docs/verify/developer-best-practices - Comprehensive best practices for implementing verification and 2FA: channel selection, user experience design, token length, rate limits, cost management
 - https://www.twilio.com/docs/verify/message-status#message-status-events - Message Status Stream feature for real-time delivery status monitoring of verification messages with five event types (sent, delivered, read, undelivered, failed)
+- https://www.twilio.com/docs/verify/preventing-toll-fraud - Fraud prevention strategies for Verify: enable Fraud Guard, disable unused channels, implement retry delays, set rate limits, detect bots, monitor usage
 - https://www.twilio.com/docs/verify/preventing-toll-fraud/sms-fraud-guard/ - Verify Fraud Guard for SMS fraud detection and blocking suspicious messages, covering protection levels (Basic, Standard, Max) and fraud monitoring
 - https://www.twilio.com/docs/verify/preventing-toll-fraud/verify-geo-permissions - Geo Permissions for controlling verification traffic to specific countries via SMS and Voice channels to prevent fraud (disable, allow, or monitor)
+- https://www.twilio.com/docs/verify/verify-countries-and-regions-deliverability - Country-specific deliverability information for Verify including special requirements, restrictions, and recommendations for improving conversion rates globally
 - https://www.twilio.com/docs/verify/verification-templates - Verify's template system for sending verification messages, covering four template types (Verify Default, Pre-approved, Custom, WhatsApp Authentication)
 - https://www.twilio.com/docs/verify/rcs - Twilio Verify's RCS upgrade feature that automatically delivers OTP messages via RCS instead of SMS when possible, covering enhanced security and cost benefits
 - https://www.twilio.com/en-us/user-authentication-identity/verify - Verify API product page as managed turnkey solution handling 4.8B+ verifications annually, showcasing verification channels, use cases, fraud prevention
+- https://help.twilio.com/articles/19753651809947-Alphanumeric-Sender-ID-for-Verify-and-Authy - Verify uses generic Alphanumeric Sender IDs (AUTHMSG, TWVerify, VerifyTWL) by default in 79 countries; custom registration recommended for specific countries to improve conversion rates
+- https://help.twilio.com/articles/12387480513307-Why-was-my-friendly-name-not-included-in-the-Verify-SMS- - Country-specific Verify restrictions: Singapore uses 5 different Sender IDs/templates, Canada removes friendly name from messages, Turkey requires custom Sender ID registration
+- https://help.twilio.com/articles/17024185400859-Use-Case-Vetting-for-Verify-Messages-to-China - China requires use case vetting and registration before sending Verify messages; must contact Twilio Support with account details, use case, website, and volume estimates
+- https://help.twilio.com/articles/223133767-International-support-for-Alphanumeric-Sender-ID - Comprehensive list of countries supporting Alphanumeric Sender IDs with registration requirements; applicable to both Programmable Messaging and Verify products
 
 ## SendGrid
 

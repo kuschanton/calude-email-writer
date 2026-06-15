@@ -22,3 +22,5 @@ token.json
 # Temporary files
 *.tmp
 *.log
+.env
+/tmp/
