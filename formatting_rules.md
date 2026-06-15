@@ -37,7 +37,7 @@ These formatting rules apply to all outputs: emails, Salesforce artifacts, call 
 ## Email-Specific Rules
 
 - Use markdown for structure and readability
-- Use `####` (4th level) headers for sections
+- Use `###` (3rd level) headers for sections (more visible in Gmail than 4th level)
 - No signature (Gmail adds it automatically)
 - No greeting unless it flows naturally
 - Brief, clear, technical tone

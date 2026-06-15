@@ -20,6 +20,7 @@ Draft concise, technical customer emails in markdown with verified documentation
 
 **CRITICAL**: See `formatting_rules.md` for complete formatting guidelines. Key rules:
 - Use markdown format (for Obsidian)
+- Use `###` (3rd level) headers for sections (more visible in Gmail than 4th level)
 - No long dashes (em dashes —) - use regular hyphens (-)
 - No signature - Gmail adds automatically
 - No greeting unless it flows naturally
