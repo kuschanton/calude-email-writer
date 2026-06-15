@@ -10,9 +10,13 @@ These formatting rules apply to all outputs: emails, Salesforce artifacts, call 
   - **bold** for emphasis
   - *italic* for secondary emphasis
   - `code` for technical terms, API names, product names
-  - ## headers for sections
+  - #### headers for sections (4th level - smaller, cleaner)
   - - bullet lists
   - [link text](URL) for documentation links
+
+**Header sizing:**
+- Use `####` (4th level) by default - cleaner and less overwhelming
+- Only use `##` (2nd level) for major document divisions if absolutely needed
 
 ## Critical: No Long Dashes
 
@@ -33,6 +37,7 @@ These formatting rules apply to all outputs: emails, Salesforce artifacts, call 
 ## Email-Specific Rules
 
 - Use markdown for structure and readability
+- Use `####` (4th level) headers for sections
 - No signature (Gmail adds it automatically)
 - No greeting unless it flows naturally
 - Brief, clear, technical tone
