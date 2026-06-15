@@ -283,14 +283,21 @@ What needs to happen after the call:
 
 ## Output Format
 
-**Display** prep notes in terminal, structured as outlined above.
-
-**Save** to `tmp/call_prep.md` and copy to clipboard using:
+**Save** to `tmp/_CALL_PREP.md` (reused every time, not appended):
 ```bash
-./scripts/copy_to_clipboard.sh tmp/call_prep.md
+cat > tmp/_CALL_PREP.md <<'EOF'
+[call prep content in markdown]
+EOF
 ```
 
-**Final message**: "✅ Call prep notes copied to clipboard!"
+**Copy** to clipboard:
+```bash
+./scripts/copy_to_clipboard.sh tmp/_CALL_PREP.md
+```
+
+**Confirm to user**: "✅ Call prep saved to `tmp/_CALL_PREP.md` and copied to clipboard"
+
+**DO NOT print call prep to console** - user reads it in Obsidian from `tmp/_CALL_PREP.md`
 
 ---
 
