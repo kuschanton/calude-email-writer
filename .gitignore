@@ -23,4 +23,9 @@ token.json
 *.tmp
 *.log
 .env
-/tmp/
+tmp/
+
+# Security documents (never commit these)
+rfp/security_docs/*.pdf
+*.soc2
+*compliance_report*.pdf
