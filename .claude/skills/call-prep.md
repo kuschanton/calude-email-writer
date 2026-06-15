@@ -281,23 +281,39 @@ What needs to happen after the call:
 
 ---
 
-## Output Format
+## Output Format - Immutable Timestamped Files
 
-**Save** to `tmp/_CALL_PREP.md` (reused every time, not appended):
+**File naming:** `call_prep/_YYYYMMDD_HHMM_CustomerName_OppDetails.md`
+- Underscore prefix for top sorting in Obsidian
+- Timestamp: YYYYMMDD_HHMM (e.g., 20260615_1430)
+- Customer name (2-3 words max)
+- Opportunity details (2-3 words, very concise)
+- Example: `_20260615_1430_Schwarz_ServiceNow.md`
+
+**Iteration within same session:**
+- If iterating on SAME opportunity in same session: reuse the same file
+- If NEW opportunity: create new timestamped file
+- **If in doubt about same vs new opportunity: ASK USER!**
+
+**Save process:**
 ```bash
-cat > tmp/_CALL_PREP.md <<'EOF'
+# Generate filename based on current time and opportunity
+FILENAME="call_prep/_$(date +%Y%m%d_%H%M)_CustomerName_OppDetails.md"
+cat > $FILENAME <<'EOF'
 [call prep content in markdown]
 EOF
 ```
 
 **Copy** to clipboard:
 ```bash
-./scripts/copy_to_clipboard.sh tmp/_CALL_PREP.md
+./scripts/copy_to_clipboard.sh $FILENAME
 ```
 
-**Confirm to user**: "✅ Call prep saved to `tmp/_CALL_PREP.md` and copied to clipboard"
+**Confirm to user**: "✅ Call prep saved to `call_prep/_YYYYMMDD_HHMM_CustomerName_OppDetails.md` and copied to clipboard"
 
-**DO NOT print call prep to console** - user reads it in Obsidian from `tmp/_CALL_PREP.md`
+**DO NOT print call prep to console** - user reads it in Obsidian from `call_prep/` folder
+
+**Important:** Files are immutable - never overwrite existing files. This allows user to take notes directly in the file without risk of losing changes.
 
 ---
 

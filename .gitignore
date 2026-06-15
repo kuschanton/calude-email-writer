@@ -38,6 +38,7 @@ token.json
 *.log
 .env
 tmp/
+call_prep/
 
 # Security documents (never commit these)
 rfp/security_docs/

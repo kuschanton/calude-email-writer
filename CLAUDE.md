@@ -96,7 +96,7 @@ This allows user to quickly restore content to clipboard if they've copied other
 ### Output Files
 - **Emails**: `tmp/_EMAIL_RESPONSE.md` (markdown format, reused every time)
 - **SF Artifacts**: `tmp/sf_artifacts.md` (markdown format)
-- **Call Prep**: `tmp/_CALL_PREP.md` (markdown format)
+- **Call Prep**: `call_prep/_YYYYMMDD_HHMM_Customer_Opp.md` (markdown format)
 - **RFX Answers**: `tmp/rfx_answers.txt` (plain text only - for forms)
 
 ### Clipboard Script Usage
