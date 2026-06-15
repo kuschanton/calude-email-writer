@@ -1,12 +1,12 @@
 ---
 name: email-writer
-description: Draft customer emails in plain text with verified documentation links
+description: Draft customer emails in markdown with verified documentation links
 when_to_use: When user asks to draft, write, reply, answer, or email. Also when user asks a question expecting an answer (e.g., "how do I...", "can Twilio...", "what is..."). Auto-detect or explicit invocation.
 ---
 
 # Email Writer
 
-Draft concise, technical customer emails with verified documentation links.
+Draft concise, technical customer emails in markdown with verified documentation links.
 
 ## Persona & Approach
 
@@ -19,11 +19,12 @@ Draft concise, technical customer emails with verified documentation links.
 ## Formatting
 
 **CRITICAL**: See `formatting_rules.md` for complete formatting guidelines. Key rules:
-- Plain text only - NO markdown syntax
+- Use markdown format (for Obsidian)
 - No long dashes (em dashes —) - use regular hyphens (-)
 - No signature - Gmail adds automatically
 - No greeting unless it flows naturally
 - Brief, clear, technical tone
+- Use [link text](URL) format for documentation links
 
 ## Workflow
 

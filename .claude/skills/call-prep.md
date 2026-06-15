@@ -17,6 +17,16 @@ As a Solutions Architect, you need structured prep notes covering:
 - Opportunity volume estimate (rough order of magnitude)
 - Risks (timeline, technical, compliance, commercial)
 
+## Formatting
+
+**CRITICAL**: See `formatting_rules.md` for complete formatting guidelines. Key rules:
+- Use markdown format (for Obsidian)
+- Use ## headers for sections
+- Use **bold** for key metrics, dates, names
+- Use `code` for product names, API names, technical terms
+- Use markdown bullets and [link text](URL) format
+- No long dashes (em dashes —) - use regular hyphens (-)
+
 ---
 
 ## Workflow

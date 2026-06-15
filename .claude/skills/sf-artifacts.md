@@ -15,25 +15,26 @@ As a Solutions Engineer, your responsibility is **technical win**. The artifacts
 ## Formatting
 
 **CRITICAL**: See `formatting_rules.md` for complete formatting guidelines. Key rules:
-- Plain text only - NO markdown (no bold, italic, code blocks, headers)
-- Use only dashes for top-level items, tabs for sub-items
+- Use markdown format (for Obsidian)
+- Use ## headers for each section
+- Use markdown bullets and formatting
 - No long dashes (em dashes —) - use regular hyphens (-)
-- Structure with newlines and clear section labels
+- Keep it concise and scannable
 
 ---
 
 ## Output Format
 
-Generate exactly three sections in a single fenced code block:
+Generate exactly three sections using markdown:
 
 ```
-USE CASE:
+## USE CASE
 [3-5 concise sentences describing business problem and proposed Twilio solution]
 
-RISKS:
+## RISKS
 [Documented risks - see detailed instructions below]
 
-NOTES:
+## NOTES
 [Technical notes - see detailed instructions below]
 ```
 
