@@ -13,6 +13,17 @@ __pycache__/
 # macOS
 .DS_Store
 
+# IDE
+.idea/
+.vscode/
+
+# Obsidian
+.obsidian/
+
+# Node modules
+node_modules/
+package-lock.json
+
 # Credentials
 credentials.json
 token.json
