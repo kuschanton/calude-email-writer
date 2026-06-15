@@ -235,17 +235,17 @@ NOTES:
 5. **Draft NOTES** (technical details from call, including Next Steps)
 6. **Display artifacts** in chat with separators so user can review
 7. **Copy to clipboard**:
-   - Save to `/tmp/sf_artifacts.txt` using heredoc
-   - Copy using script: `./scripts/copy_to_clipboard.sh /tmp/sf_artifacts.txt`
-   - Script outputs: "✅ Copied to clipboard: /tmp/sf_artifacts.txt"
+   - Save to `tmp/sf_artifacts.md` using heredoc
+   - Copy using script: `./scripts/copy_to_clipboard.sh tmp/sf_artifacts.md`
+   - Script outputs: "✅ Copied to clipboard: tmp/sf_artifacts.md"
 
 ---
 
 ## Special Command: "cb"
 
 If user sends just "cb", immediately re-copy the last drafted artifacts:
-- Copy from `/tmp/sf_artifacts.txt`
-- Use: `./scripts/copy_to_clipboard.sh /tmp/sf_artifacts.txt`
+- Copy from `tmp/sf_artifacts.md`
+- Use: `./scripts/copy_to_clipboard.sh tmp/sf_artifacts.md`
 - Respond only: "✅ Copied to clipboard!"
 
 ---

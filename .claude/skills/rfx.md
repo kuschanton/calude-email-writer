@@ -71,14 +71,14 @@ A: [Brief answer]
 - Print separator: `---`
 
 ### 6. Copy to Clipboard
-- Save content to `/tmp/rfx_answers.txt` using heredoc:
+- Save content to `tmp/rfx_answers.txt` using heredoc:
   ```bash
-  cat > /tmp/rfx_answers.txt <<'EOF'
+  cat > tmp/rfx_answers.txt <<'EOF'
   [answers content]
   EOF
   ```
-- Copy using script: `./scripts/copy_to_clipboard.sh /tmp/rfx_answers.txt`
-- Script outputs: "✅ Copied to clipboard: /tmp/rfx_answers.txt"
+- Copy using script: `./scripts/copy_to_clipboard.sh tmp/rfx_answers.txt`
+- Script outputs: "✅ Copied to clipboard: tmp/rfx_answers.txt"
 
 ### 7. Show Links Used
 After the answers, output a "Links used:" section with all URLs in a code block for reference.
@@ -149,8 +149,8 @@ https://www.twilio.com/legal/service-level-agreement
 ## Special Command: "cb"
 
 If user sends just "cb", immediately re-copy the last drafted answers:
-- Copy from `/tmp/rfx_answers.txt`
-- Use: `./scripts/copy_to_clipboard.sh /tmp/rfx_answers.txt`
+- Copy from `tmp/rfx_answers.txt`
+- Use: `./scripts/copy_to_clipboard.sh tmp/rfx_answers.txt`
 - Respond only: "✅ Copied to clipboard!"
 
 ---

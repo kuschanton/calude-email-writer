@@ -285,9 +285,9 @@ What needs to happen after the call:
 
 **Display** prep notes in terminal, structured as outlined above.
 
-**Save** to `/tmp/call_prep.txt` and copy to clipboard using:
+**Save** to `tmp/call_prep.md` and copy to clipboard using:
 ```bash
-./scripts/copy_to_clipboard.sh /tmp/call_prep.txt
+./scripts/copy_to_clipboard.sh tmp/call_prep.md
 ```
 
 **Final message**: "✅ Call prep notes copied to clipboard!"

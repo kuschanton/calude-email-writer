@@ -41,33 +41,33 @@ Draft concise, technical customer emails in markdown with verified documentation
 - **Direct URL(s)** - point to official documentation
 - Keep it concise - no fluff
 
-### 4. Display Email
-- Print separator: `---`
-- Print label: `EMAIL BODY:`
-- Print the full email body (plain text)
-- Print separator: `---`
-- **IMPORTANT**: Always display the content so user can review
-
-### 5. Copy to Clipboard
-- Save content to `/tmp/email_draft.txt` using heredoc:
+### 4. Save to File
+- Save content to `tmp/email_response.md` using heredoc:
   ```bash
-  cat > /tmp/email_draft.txt <<'EOF'
-  [email content]
+  cat > tmp/email_response.md <<'EOF'
+  [email content in markdown]
   EOF
   ```
-- Copy using script: `./scripts/copy_to_clipboard.sh /tmp/email_draft.txt`
-- Script outputs: "✅ Copied to clipboard: /tmp/email_draft.txt"
+- This file is reused every time (not appended, overwritten)
+- User reads this file in Obsidian and copies from there
+- **DO NOT print email to console** - only confirmation message
 
-### 6. Show Links Used
-After the email, output a "Links used:" section with URLs in a code block for reference.
+### 5. Copy to Clipboard
+- Copy using script: `./scripts/copy_to_clipboard.sh tmp/email_response.md`
+- Script outputs: "✅ Copied to clipboard: tmp/email_response.md"
+
+### 6. Confirm to User
+- Tell user: "✅ Email draft saved to `tmp/email_response.md` and copied to clipboard"
+- Show "Links used:" section with URLs in a code block for reference
+- **Do not display the full email body** - user will read it in Obsidian
 
 ---
 
 ## Special Command: "cb"
 
 If user sends just "cb", immediately re-copy the last drafted content:
-- Copy from `/tmp/email_draft.txt`
-- Use: `./scripts/copy_to_clipboard.sh /tmp/email_draft.txt`
+- Copy from `tmp/email_response.md`
+- Use: `./scripts/copy_to_clipboard.sh tmp/email_response.md`
 - Respond only: "✅ Copied to clipboard!"
 
 ---
@@ -104,6 +104,7 @@ If user sends just "cb", immediately re-copy the last drafted content:
 
 ## Output
 
-1. Display email body with separators
+1. Save email to `tmp/email_response.md` (markdown format)
 2. Copy to clipboard automatically
-3. Show "Links used:" section with URLs
+3. Confirm to user with "Links used:" section
+4. User reads final email in Obsidian from `tmp/email_response.md`

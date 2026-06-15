@@ -79,9 +79,9 @@ If unsure which skill to use, ask the user briefly. Otherwise, auto-detect based
 ### "cb" Command (Global)
 
 If user sends just "cb", immediately re-copy the last drafted content to clipboard:
-- For emails: copy from `/tmp/email_draft.txt`
-- For SF artifacts: copy from `/tmp/sf_artifacts.txt`
-- For RFX answers: copy from `/tmp/rfx_answers.txt`
+- For emails: copy from `tmp/email_response.md`
+- For SF artifacts: copy from `tmp/sf_artifacts.md`
+- For RFX answers: copy from `tmp/rfx_answers.txt`
 - Use: `./scripts/copy_to_clipboard.sh [file_path]`
 - Respond only: "✅ Copied to clipboard!"
 
@@ -89,21 +89,37 @@ This allows user to quickly restore content to clipboard if they've copied other
 
 ---
 
-## Clipboard Script Usage
+## File Output & Clipboard Usage
 
-**MANDATORY**: Always use the clipboard script for copying content:
+**All drafted content goes to `tmp/` folder** for Obsidian integration:
+
+### Output Files
+- **Emails**: `tmp/email_response.md` (markdown format, reused every time)
+- **SF Artifacts**: `tmp/sf_artifacts.md` (markdown format)
+- **Call Prep**: `tmp/call_prep.md` (markdown format)
+- **RFX Answers**: `tmp/rfx_answers.txt` (plain text only - for forms)
+
+### Clipboard Script Usage
+
+**MANDATORY**: Always use the clipboard script:
 
 ```bash
-# Step 1: Save content to /tmp/ using heredoc
-cat > /tmp/filename.txt <<'EOF'
+# Step 1: Save content to tmp/ using heredoc
+cat > tmp/filename.md <<'EOF'
 [content here]
 EOF
 
 # Step 2: Copy using script
-./scripts/copy_to_clipboard.sh /tmp/filename.txt
+./scripts/copy_to_clipboard.sh tmp/filename.md
 ```
 
-**NEVER** use `pbcopy` directly or other variations. The script ensures clean copy without leading spaces or markdown formatting.
+**NEVER** use `pbcopy` directly. The script ensures clean copy without leading spaces.
+
+### User Workflow
+1. Skills save content to `tmp/` folder
+2. Skills auto-copy to clipboard
+3. User reads final content in Obsidian from `tmp/` folder
+4. User can copy/paste directly from Obsidian or use clipboard
 
 ---
 

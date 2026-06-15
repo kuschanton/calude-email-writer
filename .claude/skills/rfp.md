@@ -88,9 +88,9 @@ When user provides an RFP/questionnaire:
   ---
   ```
 - **Automatically copy to clipboard**:
-  1. Save answer to `/tmp/rfp_answer.txt` using heredoc: `cat > /tmp/rfp_answer.txt <<'EOF' ... EOF`
-  2. Copy using script: `./scripts/copy_to_clipboard.sh /tmp/rfp_answer.txt`
-  3. Script will output: "✅ Copied to clipboard: /tmp/rfp_answer.txt"
+  1. Save answer to `tmp/rfp_answer.txt` using heredoc: `cat > tmp/rfp_answer.txt <<'EOF' ... EOF`
+  2. Copy using script: `./scripts/copy_to_clipboard.sh tmp/rfp_answer.txt`
+  3. Script will output: "✅ Copied to clipboard: tmp/rfp_answer.txt"
 - User either:
   - **Accepts with "good" or "next"**: Automatically proceed to next question
   - **Requests edits**: Revise (including new clipboard copy) and loop back to Step C
@@ -105,7 +105,7 @@ When user provides an RFP/questionnaire:
 
 **"cb" command**: If user sends "cb", immediately re-copy the last answer to clipboard without any other output:
 ```bash
-./scripts/copy_to_clipboard.sh /tmp/rfp_answer.txt
+./scripts/copy_to_clipboard.sh tmp/rfp_answer.txt
 ```
 Then just respond: "✅ Copied to clipboard!"
 
