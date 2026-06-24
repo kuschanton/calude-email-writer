@@ -75,13 +75,20 @@ Document technical, compliance, commercial, and operational risks that could blo
 - Commercial risks: pricing sensitivity, competitive threats, commitment friction, churn risk
 - Operational risks: implementation complexity, timeline pressures, resource constraints, dependency on third parties
 - Migration risks: if switching from another provider, what could go wrong
-- Typical risks for use case: CPS limits for outbound calling, messaging throughput for high-volume senders, API rate limits
+- Typical risks for use case:
+  - **CPS (Calls Per Second) limits for outbound calling**: Default CPS limits may be insufficient for high-volume outbound campaigns. Always ask: "Do they do outbound calls? How many calls per second?" Standard limits may require upgrades for contact centers, campaign dialers, or bulk outreach.
+  - Messaging throughput for high-volume senders
+  - API rate limits
 - **Include all risks identified** - user will filter. Better to log more than miss critical ones.
 - Use judgment to filter obvious non-issues (e.g., API limits for low-volume SMS)
 
 ### Risk Categories to Consider
 - Product availability/feature gaps in required region
-- Scale/volume risks (throughput, rate limits, CPS for Voice, messaging throughput, approval delays)
+- Scale/volume risks:
+  - **Voice CPS (Calls Per Second)**: Critical for outbound calling use cases - contact centers, campaign dialers, bulk notifications. Default limits often insufficient.
+  - Messaging throughput for high-volume senders
+  - API rate limits
+  - WhatsApp/SMS approval delays
 - Integration complexity with customer's existing systems
 - Compliance and regulatory blockers
 - Carrier or third-party dependencies (Meta for WhatsApp, carrier approvals for 10DLC, etc.)

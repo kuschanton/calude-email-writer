@@ -1,5 +1,6 @@
 # Customer data and conversation history
 history/
+opps/
 
 # Training examples and original prompts (may contain PII)
 examples/

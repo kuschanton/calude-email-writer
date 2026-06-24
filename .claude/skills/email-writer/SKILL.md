@@ -53,12 +53,8 @@ Draft concise, technical customer emails in markdown with verified documentation
 - User reads this file in Obsidian and copies from there
 - **DO NOT print email to console** - only confirmation message
 
-### 5. Copy to Clipboard
-- Copy using script: `./scripts/copy_to_clipboard.sh tmp/_EMAIL_RESPONSE.md`
-- Script outputs: "✅ Copied to clipboard: tmp/_EMAIL_RESPONSE.md"
-
-### 6. Confirm to User
-- Tell user: "✅ Email draft saved to `tmp/_EMAIL_RESPONSE.md` and copied to clipboard"
+### 5. Confirm to User
+- Tell user: "✅ Email draft saved to `tmp/_EMAIL_RESPONSE.md`"
 - Show "Links used:" section with URLs in a code block for reference
 - **Do not display the full email body** - user will read it in Obsidian
 
@@ -66,10 +62,9 @@ Draft concise, technical customer emails in markdown with verified documentation
 
 ## Special Command: "cb"
 
-If user sends just "cb", immediately re-copy the last drafted content:
-- Copy from `tmp/_EMAIL_RESPONSE.md`
-- Use: `./scripts/copy_to_clipboard.sh tmp/_EMAIL_RESPONSE.md`
-- Respond only: "✅ Copied to clipboard!"
+If user sends just "cb", remind them:
+- "The last email draft is in `tmp/_EMAIL_RESPONSE.md`"
+- User copies from Obsidian directly
 
 ---
 
@@ -106,6 +101,5 @@ If user sends just "cb", immediately re-copy the last drafted content:
 ## Output
 
 1. Save email to `tmp/_EMAIL_RESPONSE.md` (markdown format)
-2. Copy to clipboard automatically
-3. Confirm to user with "Links used:" section
-4. User reads final email in Obsidian from `tmp/_EMAIL_RESPONSE.md`
+2. Confirm to user with "Links used:" section
+3. User reads and copies final email in Obsidian from `tmp/_EMAIL_RESPONSE.md`
