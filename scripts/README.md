@@ -47,6 +47,36 @@ node ./scripts/google_cse_ui.js "search query"
 
 ---
 
+## calendar_query.swift
+
+Queries Apple Calendar using EventKit and returns JSON. Filters out events with only internal attendees.
+
+**Usage:**
+```bash
+swift scripts/calendar_query.swift [days_back] [days_forward] [calendar_name] [internal_domains]
+```
+
+**Parameters:**
+- `days_back`: Days to look back from now (default: 7)
+- `days_forward`: Days to look forward from now (default: 0)
+- `calendar_name`: Calendar to query (default: `akushch@twilio.com`)
+- `internal_domains`: Comma-separated domains to treat as internal (default: `twilio.com`). Events where all attendees are on internal domains are excluded.
+
+**Examples:**
+```bash
+# Customer meetings this past week (default)
+swift scripts/calendar_query.swift 7 0 "akushch@twilio.com" "twilio.com"
+
+# Upcoming customer meetings next 7 days
+swift scripts/calendar_query.swift 0 7 "akushch@twilio.com" "twilio.com"
+```
+
+**Returns:** JSON array of events with title, start, end, location, organizer, attendees (name, email, status), and isAllDay. Only events with at least one external attendee are included.
+
+**Note:** Requires macOS calendar access permission. Claude translates natural language date requests: "had this week" → `days_back=7, days_forward=0`; "have this week" → `days_back=0, days_forward=7`.
+
+---
+
 ## search_mail.applescript
 
 Searches Apple Mail for emails from a specific sender with date filtering.

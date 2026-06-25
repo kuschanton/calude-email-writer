@@ -123,6 +123,27 @@ EOF
 
 ---
 
+## Calendar Search Workflow
+
+When user asks about calendar meetings (e.g., "which customer meetings did I have this week"):
+
+1. **Parse date intent**:
+   - Past tense ("had", "did I have") → `days_back=7, days_forward=0`
+   - Future tense ("have", "do I have") → `days_back=0, days_forward=7`
+   - "today" → `days_back=0, days_forward=1`
+   - "yesterday" → `days_back=1, days_forward=0`
+
+2. **Query calendar** using EventKit Swift script:
+   ```bash
+   swift scripts/calendar_query.swift [days_back] [days_forward] "akushch@twilio.com" "twilio.com"
+   ```
+   - Always pass `"twilio.com"` as the internal domain filter
+   - Script returns only events with external (customer) attendees
+
+3. **Display results** grouped by date with: title, time, external attendee names/domains
+
+---
+
 ## Email Search Workflow
 
 When user asks to find an email (e.g., "email from Manuel Krah today"):
