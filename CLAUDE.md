@@ -74,13 +74,23 @@ If unsure which skill to use, ask the user briefly. Otherwise, auto-detect based
 
 ---
 
+## Session Startup
+
+At the start of every conversation, run silently:
+```
+./scripts/tmux_rename_session.sh
+```
+No output to user unless it fails. The script handles the tmux check and renames the session to `{original_name}_{claude_session_uuid}` so the session can be resumed after reboot with `claude --resume <uuid>`.
+
+---
+
 ## Special Commands
 
 ### "cb" Command (Global)
 
 If user sends just "cb", immediately re-copy the last drafted content to clipboard:
 - For emails: copy from `tmp/_EMAIL_RESPONSE.md`
-- For SF artifacts: copy from `tmp/sf_artifacts.md`
+- For SF artifacts: copy from `tmp/_SF_ARTIFACTS.md`
 - For RFX answers: copy from `tmp/rfx_answers.txt`
 - Use: `./scripts/copy_to_clipboard.sh [file_path]`
 - Respond only: "✅ Copied to clipboard!"
@@ -95,7 +105,7 @@ This allows user to quickly restore content to clipboard if they've copied other
 
 ### Output Files
 - **Emails**: `tmp/_EMAIL_RESPONSE.md` (markdown format, reused every time)
-- **SF Artifacts**: `tmp/sf_artifacts.md` (markdown format)
+- **SF Artifacts**: `tmp/_SF_ARTIFACTS.md` (markdown format)
 - **Call Prep**: `call_prep/_YYYYMMDD_HHMM_Customer_Opp.md` (markdown format)
 - **RFX Answers**: `tmp/rfx_answers.txt` (plain text only - for forms)
 
@@ -117,9 +127,10 @@ EOF
 
 ### User Workflow
 1. Skills save content to `tmp/` folder
-2. Skills auto-copy to clipboard
-3. User reads final content in Obsidian from `tmp/` folder
-4. User can copy/paste directly from Obsidian or use clipboard
+2. User reads final content in Obsidian from `tmp/` folder
+3. User copies from Obsidian directly, or uses "cb" command to copy to clipboard on demand
+
+**Note**: Do NOT auto-copy to clipboard after email drafts. Only copy when user explicitly asks (e.g., "cb" command or "copy to clipboard").
 
 ---
 

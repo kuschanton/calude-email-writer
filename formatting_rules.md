@@ -38,8 +38,9 @@ These formatting rules apply to all outputs: emails, Salesforce artifacts, call 
 
 - Use markdown for structure and readability
 - Use `###` (3rd level) headers for sections (more visible in Gmail than 4th level)
+- No horizontal rules (`---`) - they render as ugly lines in email clients
 - No signature (Gmail adds it automatically)
-- No greeting unless it flows naturally
+- Always include a short greeting (e.g. "Hi Ryan," or "Hi Vlad,")
 - Brief, clear, technical tone
 - Link-centric: provide [documentation links](URL), don't write long explanations
 

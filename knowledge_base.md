@@ -53,6 +53,8 @@ This file contains verified Twilio documentation links with descriptions. Links 
 - https://www.twilio.com/en-us/blog/developers/tutorials/product/sms-forwarding-and-responding-using-twilio-and-javascript - Tutorial: build SMS forwarding system using Twilio Functions and JavaScript that forwards incoming messages while masking phone numbers
 - https://www.twilio.com/en-us/resource-center/sms-rcs-next-generation-of-messaging - Infographic guide comparing SMS and RCS, explaining RCS features like high-resolution visuals, verified senders, and interactive elements
 - https://www.twilio.com/en-us/changelog/-u-s--a2p-10dlc--launching-support-for-cnp-migration- - Support for TCR's Campaign Connectivity Partner (CNP) Migration Tool, enabling Campaign Service Providers to transfer campaigns to Twilio without re-registration
+- https://help.twilio.com/articles/1260803225669-Message-throughput-MPS-and-Trust-Scores-for-A2P-10DLC-in-the-US - A2P 10DLC MPS throughput tables by Trust Score and Campaign type (Declared, Mixed/Marketing, Sole Proprietor, Special use cases); explains how Trust Score determines carrier-side MPS limits; Account Based Rate Limiting overview
+- https://help.twilio.com/articles/115002943027-Understanding-Twilio-Rate-Limits-and-Message-Queues - Twilio API-side rate limits and message queuing: per-number MPS by sender type (local, toll-free, short code, 10DLC), queue lengths, MMS limits, account concurrency (HTTP 429)
 
 ## Content API & Templates
 
@@ -167,10 +169,14 @@ This file contains verified Twilio documentation links with descriptions. Links 
 
 - https://www.twilio.com/en-us/guidelines/regulatory - Comprehensive directory of phone number regulatory requirements across 100+ countries, providing country-specific compliance guidelines
 - https://www.twilio.com/en-us/guidelines/es/regulatory - Spain-specific compliance requirements for obtaining phone numbers: documentation and identification needed for individuals and businesses
+- https://www.twilio.com/en-us/guidelines/gb/regulatory - UK-specific regulatory requirements for local/national numbers: business info required (name, registration number, address, authorized rep), no physical documents needed for businesses
+- https://help.twilio.com/articles/8338625205147-How-to-Submit-a-Regulatory-Bundle-for-Phone-Number-Regulatory-Compliance - Step-by-step guide for creating and submitting a Regulatory Bundle in Twilio Console; approval takes up to 3 business days; once approved, assign bundle to phone number before purchase
 
 ## Product Pages & Resources
 
 - https://www.twilio.com/en-us/editions - Twilio's tiered product offerings (Administration, Security, and Enterprise editions) with progressively advanced capabilities for access management, compliance, billing
+- https://www.twilio.com/docs/iam/twilio-editions - Twilio Editions technical docs; Advanced Audit Insights extends log retention from 30 days to 400 days and is included in all Editions tiers
+- https://help.twilio.com/articles/34570678354843-Insights-Feature-Comparison-Edition-Packages-vs-Base-Version - Audit Insights feature comparison: base vs Enterprise Edition; Enterprise unlocks custom date ranges up to 13 months, advanced boolean filters, per-user event views, and Monitor Events API access up to 13 months
 - https://www.twilio.com/en-us/products/conversational-ai/conversational-intelligence - AI-powered platform for analyzing voice and messaging conversations, extracting customer insights, monitoring agent performance
 
 ## Blog

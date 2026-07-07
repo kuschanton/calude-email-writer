@@ -27,6 +27,11 @@ As a Solutions Architect, you need structured prep notes covering:
 - Use markdown bullets and [link text](URL) format
 - No long dashes (em dashes —) - use regular hyphens (-)
 
+**Emoji conventions** (use consistently in call prep files):
+- ❗ Critical point / deal-breaker / hard blocker
+- ❓ Important question - must get an answer on this call
+- ⚙️ Action point / something that needs to be done
+
 ---
 
 ## Workflow
@@ -146,28 +151,30 @@ State call type and what you need to accomplish:
 
 ### 5. Questions to Ask
 
+**CRITICAL**: All questions must use checkbox format: `- [ ] Question text`
+
 Group into categories:
 
 **Technical Questions**:
-- Integration model, API usage, authentication
-- Scale/volume, concurrency, peak loads
-- Compliance requirements, data residency
-- Monitoring, alerting, SLAs
-- Existing systems and tech stack
+- [ ] Integration model, API usage, authentication
+- [ ] Scale/volume, concurrency, peak loads
+- [ ] Compliance requirements, data residency
+- [ ] Monitoring, alerting, SLAs
+- [ ] Existing systems and tech stack
 
 **Business Questions**:
-- What's driving this project? (why now?)
-- Timeline for decision and implementation?
-- Who are the stakeholders and decision makers?
-- Budget allocated?
-- Success criteria?
-- Competitive evaluation?
+- [ ] What's driving this project? (why now?)
+- [ ] Timeline for decision and implementation?
+- [ ] Who are the stakeholders and decision makers?
+- [ ] Budget allocated?
+- [ ] Success criteria?
+- [ ] Competitive evaluation?
 
 **Implementation Questions**:
-- Who handles development/integration on customer side?
-- Internal approvals needed?
-- Existing vendor relationships?
-- Migration complexity (if switching providers)?
+- [ ] Who handles development/integration on customer side?
+- [ ] Internal approvals needed?
+- [ ] Existing vendor relationships?
+- [ ] Migration complexity (if switching providers)?
 
 ### 6. Resources/Documentation
 
@@ -304,12 +311,7 @@ cat > $FILENAME <<'EOF'
 EOF
 ```
 
-**Copy** to clipboard:
-```bash
-./scripts/copy_to_clipboard.sh $FILENAME
-```
-
-**Confirm to user**: "✅ Call prep saved to `call_prep/_YYYYMMDD_HHMM_CustomerName_OppDetails.md` and copied to clipboard"
+**Confirm to user**: "✅ Call prep saved to `call_prep/_YYYYMMDD_HHMM_CustomerName_OppDetails.md`"
 
 **DO NOT print call prep to console** - user reads it in Obsidian from `call_prep/` folder
 

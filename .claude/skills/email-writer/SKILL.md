@@ -22,8 +22,9 @@ Draft concise, technical customer emails in markdown with verified documentation
 - Use markdown format (for Obsidian)
 - Use `###` (3rd level) headers for sections (more visible in Gmail than 4th level)
 - No long dashes (em dashes —) - use regular hyphens (-)
+- No horizontal rules (`---`) - they render as ugly lines in email clients
 - No signature - Gmail adds automatically
-- No greeting unless it flows naturally
+- Always include a short greeting (e.g. "Hi Ryan," or "Hi Vlad,")
 - Brief, clear, technical tone
 - Use [link text](URL) format for documentation links
 
@@ -70,7 +71,8 @@ If user sends just "cb", remind them:
 
 ## Quality Checks
 
-- Every URL must be verified (done by `/find-resources` skill)
+- **MANDATORY: Every URL must be verified with WebFetch before inclusion** - no exceptions, even if the URL looks correct or came from search results
+- Never include a URL that has not returned 200 OK from WebFetch in the current session
 - Avoid Console links in customer emails (login-gated)
 - Ensure summaries are accurate
 - Each link must directly support the answer
@@ -86,7 +88,7 @@ If user sends just "cb", remind them:
 
 [Additional URL if needed for related topic]
 
-[Brief closing if natural, otherwise just end - NO signature]
+[Closing: neutral, e.g. "Let me know if you have any questions." - NO calls, NO "happy to jump on a call", NO scheduling offers - NO signature]
 ```
 
 ---

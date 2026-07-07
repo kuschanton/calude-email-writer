@@ -8,6 +8,13 @@ when_to_use: User asks to create/update opp or account files, or says "create op
 
 **Purpose**: Manage opportunities and strategic accounts - create, update, track progress, suggest next steps and team involvement based on presales stage.
 
+## Emoji Conventions
+
+Use consistently in all opp and account files:
+- ❗ Critical point / deal-breaker / hard blocker
+- ❓ Important question / open item that needs an answer
+- ⚙️ Action point / something that needs to be done
+
 ---
 
 ## Overview
@@ -66,7 +73,7 @@ User will explicitly tell you:
    **EDITABLE SECTIONS** (replace/update existing content):
    - Pinned (add new links/docs)
    - Current State (replace bullet points to reflect latest status)
-   - Open Items / Next Steps (replace with current action items)
+   - Open Items / Next Steps: mark completed items as `[x]` (keep them visible), add new `[ ]` items — never delete old entries, progress should be visible
    - Pending / Later (move items here when deferred)
    - Company Info (if changed)
    - Use Case (if refined)
